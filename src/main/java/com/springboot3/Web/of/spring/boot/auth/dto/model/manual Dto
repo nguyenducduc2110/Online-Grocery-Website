@@ -1,0 +1,3 @@
+===>Ví dụ nếu User các fields dữ liệu reponse khác request thì phân ra
+UserRequest và UserResponse. Còn nếu request  và response có có data trả vào giống nhau(trả ra các fields giống nhau)
+thì dùng chung UserDto.
