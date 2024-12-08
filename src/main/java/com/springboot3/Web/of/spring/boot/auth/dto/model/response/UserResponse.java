@@ -22,7 +22,6 @@ public class UserResponse {
     private String password;
 
     private LocalDate dob;
-    //trả về list DTO vừa để hạn chế data ít nhất trả về cho client vừa security
     private Set<RoleResponse> roles;
 
 }

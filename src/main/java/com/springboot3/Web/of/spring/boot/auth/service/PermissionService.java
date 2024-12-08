@@ -9,6 +9,8 @@ import java.util.List;
 
 public interface PermissionService {
     public abstract PermissionDto createPermission(PermissionDto permissionDto);
+
     public abstract List<PermissionDto> getPermissions();
+
     public abstract void deletePermission(String code);
 }

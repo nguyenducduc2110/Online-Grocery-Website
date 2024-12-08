@@ -20,9 +20,8 @@ import java.util.HashSet;
 import java.util.List;
 
 @Service
-//@AllArgsConstructor
 @Log4j
-@RequiredArgsConstructor //Có hiệu xuất tốt hơn
+@RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class RoleServiceImpl implements RoleService {
     RoleRepository roleRepository;
@@ -32,18 +31,17 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public RoleResponse create(RoleRequest roleDto) {
         var role = roleMapper.toRole(roleDto);
-        //Map từ chuỗi Id sang object = hand
         var permissions = permissionRepository.findAllById(roleDto.getPermissions());
         role.setPermissions(new HashSet<>(permissions));
-        return  roleMapper.toRoleDto(roleRepository.save(role));
+        return roleMapper.toRoleDto(roleRepository.save(role));
     }
+
     @Override
-    public List<RoleResponse> getAll(){
+    public List<RoleResponse> getAll() {
         return roleRepository.findAll().stream().
                 map(role -> roleMapper.toRoleDto(role)).toList();
     }
-    //mấy cái role hay permission biểu trưng cho quyền thì chỉ nên truyền Id chứ ko để lộ name hay code để bảo mật
-    //Để tránh nhầm nữa mà óc. User có nhiều role USER mà.
+
     @Override
     public void delete(String code) {
         roleRepository.deleteById(code);

@@ -10,9 +10,14 @@ import java.util.List;
 
 public interface UserService {
     public abstract UserResponse getMyInfo();
+
     List<UserResponse> getUsers();
+
     UserResponse getUser(Long id);
+
     UserResponse updateUser(Long id, UserUpdateRequest userDto);
+
     UserResponse createUser(UserCreationRequest userCreationRequest);
+
     void deleteUser(Long id);
 }

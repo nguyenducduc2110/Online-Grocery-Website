@@ -17,7 +17,6 @@ public class UserDetailsImpl implements UserDetails {
     private String lastName;
     private Collection<? extends GrantedAuthority> authorities;
 
-    //Trả về danh sách các quyền của người dùng. Mỗi quyền được biểu diễn bởi một đối tượng GrantedAuthority.
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
@@ -32,8 +31,7 @@ public class UserDetailsImpl implements UserDetails {
     public String getUsername() {
         return this.username;
     }
-    //	//Việc khóa tk user nên set update ở csdl chứ ko nên dùng lib của spring
-//	//==>nên set true hết.
+
     @Override
     public boolean isAccountNonExpired() {
         return UserDetails.super.isAccountNonExpired();

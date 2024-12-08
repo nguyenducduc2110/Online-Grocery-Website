@@ -14,6 +14,6 @@ public class AuthenticationRequest {
     @Size(min = 5, max = 15, message = "Username containt least 6-15 charaters")
     private String username;
     @NotEmpty(message = "Password can not be empty!")
-    @Size(min = 6, max = 15,message = "Password containt least 6-15 charaters")
+    @Size(min = 6, max = 15, message = "Password containt least 6-15 charaters")
     private String password;
 }

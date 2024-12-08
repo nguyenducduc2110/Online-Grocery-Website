@@ -16,8 +16,6 @@ import java.util.List;
 @Log4j
 @Service
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-//Mặc dù @Service cũng giúp bean class này nằm trong container rồi
-//Nhưng vẫn cần constructer bean để cùng pool chứa constructer bean PermissionRepository,PermissionMapper
 @RequiredArgsConstructor
 public class PermissionServiceImpl implements PermissionService {
     PermissionRepository permissionRepository;
@@ -26,7 +24,7 @@ public class PermissionServiceImpl implements PermissionService {
     @Override
     public PermissionDto createPermission(PermissionDto permissionDto) {
         Permission permission = permissionMapper.toPermission(permissionDto);
-        return  permissionMapper.toPermissionDto(permissionRepository.save(permission));
+        return permissionMapper.toPermissionDto(permissionRepository.save(permission));
     }
 
     @Override

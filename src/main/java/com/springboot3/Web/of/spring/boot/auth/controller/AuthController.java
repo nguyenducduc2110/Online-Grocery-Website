@@ -19,30 +19,27 @@ import org.springframework.web.bind.annotation.*;
 import java.text.ParseException;
 
 @RestController
-@RequestMapping("/auth")//Lý do nên dùng enpoint chung ntn: Để trong spring security chỉ cần khai báo endpoint auth** là dùng đc all các subEndpoint mà ko cần phải khai báo
+@RequestMapping("/auth")
 @RequiredArgsConstructor
 @Log4j
 public class AuthController {
     private final AuthService authService;
+
     @PostMapping(value = {"/register", "/signup"})
     public ApiResponse<String, Void> register(@RequestBody @Valid RegisterDto registerDto) {
         log.info("AuthController:Đăng ký xong");
-        return  ApiResponse.<String, Void>builder().result(authService.register(registerDto)).build();
+        return ApiResponse.<String, Void>builder().result(authService.register(registerDto)).build();
     }
 
-    //Login và trả ra token
     @PostMapping(value = {"/token"})
     public ApiResponse<AuthenticationResponse, Void> authenticate(@RequestBody @Valid AuthenticationRequest authenticationRequest) {
         log.info("AuthController:Authenticate");
-        //trc method builer có generic vì nó có type generic:
-        //public static <T, M> ApiResponse.ApiResponseBuilder<T, M> builder()
         return ApiResponse.<AuthenticationResponse, Void>builder().result(authService.authenticate(authenticationRequest)).build();
     }
 
-    //Authenticate token
     @PostMapping(value = {"/introspect"})
     public ApiResponse<IntrospectResponse, String> authenticate(@RequestBody @Valid IntrospectRequest introspectRequest) throws ParseException, JOSEException {
-        return ApiResponse.<IntrospectResponse, String>builder().result( authService.introspect(introspectRequest)).build();
+        return ApiResponse.<IntrospectResponse, String>builder().result(authService.introspect(introspectRequest)).build();
     }
 
     @PostMapping("/logout")

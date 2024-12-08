@@ -12,7 +12,7 @@ import java.util.List;
 
 @Log4j2
 @RestController
-@RequestMapping( "/permissions")
+@RequestMapping("/permissions")
 @RequiredArgsConstructor
 public class PermissionController {
     private final PermissionService permissionService;

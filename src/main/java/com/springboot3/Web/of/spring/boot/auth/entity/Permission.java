@@ -14,7 +14,6 @@ import java.util.Set;
 @Table(name = "permissions")
 @Entity
 public class Permission extends BaseEntity {
-    //Với nhưng trường code của role, permission chỉ là duy nhất nên cho làm id luôn để tránh nhiều cột gây giảm perfomance
     @Id
     @Column(unique = true, nullable = false)
     private String code;

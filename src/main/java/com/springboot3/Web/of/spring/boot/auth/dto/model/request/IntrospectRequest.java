@@ -9,7 +9,6 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-//Dùng để gửi request chứa token cho việc test tính hợp lệ token(verify)
 public class IntrospectRequest {
     @NotEmpty(message = "Token can not empty!")
     String token;

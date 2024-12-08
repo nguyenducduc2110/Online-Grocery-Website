@@ -14,6 +14,5 @@ import java.util.Set;
 public class RoleResponse {
     String name;
     String code;
-    //Nhưng khi response phải reponse list PermissionDto để lấy name của nó phân quyền
     Set<PermissionDto> permissions;
 }

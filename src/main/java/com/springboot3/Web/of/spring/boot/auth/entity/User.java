@@ -16,7 +16,7 @@ import java.util.Set;
 @Builder
 public class User extends BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)//Set ntn thì lúc save user thì JPA nó sẽ tự tạo id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
     private String firstName;
@@ -26,7 +26,6 @@ public class User extends BaseEntity {
     private String username;
     @Column(nullable = false)
     private String password;
-    //fields nào ko truyền vào nên để null
     private LocalDate dob;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(
@@ -34,7 +33,6 @@ public class User extends BaseEntity {
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "role_code", referencedColumnName = "code")
     )
-    //Đại diện cho việc 1 user có nhiều role. Tức là cùng 1 id trong table users_roles có nhều row data id_role
     private Set<Role> roles;
 
 }

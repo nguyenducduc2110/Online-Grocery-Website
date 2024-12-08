@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserCreationRequest {//Phân ra DTO: Creation, update,,... vì lúc tạo sẽ có các trường ko như update. Mà đôi khi admin có thể update role cho User nên phải phân ra
+public class UserCreationRequest {
     private Long id;
     @NotEmpty(message = "Tên đầu không được bỏ trống")
     @Size(min = 1, message = "Tên đầu phải có độ dài tối thiểu là 1 ký tự")

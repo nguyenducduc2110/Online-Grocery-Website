@@ -11,7 +11,5 @@ public interface RoleService {
 
     List<RoleResponse> getAll();
 
-    //mấy cái role hay permission biểu trưng cho quyền thì chỉ nên truyền Id chứ ko để lộ name hay code để bảo mật
-    //Để tránh nhầm nữa mà óc. User có nhiều role USER mà.
     void delete(String code);
 }

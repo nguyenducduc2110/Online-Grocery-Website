@@ -6,7 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//DO việc handle logic Auth nằm ở service controller chỉ việc gọi nên class này sinh ra để reponse object cho controller
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

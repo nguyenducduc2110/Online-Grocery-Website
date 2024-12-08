@@ -13,15 +13,15 @@ import java.util.Optional;
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
 public class JpaAuditingConfig {
     @Bean
-    AuditorAware<String> auditorAware() {//Cấu hình này nó sẽ cung cấp createDate, modifiedDate, createBy
+    AuditorAware<String> auditorAware() {
         return new AuditorAwareImpl();
     }
-    //Đây là cung cấp config cho AuditorAware cho field modifiedBy
-    private static class AuditorAwareImpl implements   AuditorAware<String> {
+
+    private static class AuditorAwareImpl implements AuditorAware<String> {
         @Override
         public Optional<String> getCurrentAuditor() {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            if(authentication == null || !authentication.isAuthenticated()) {
+            if (authentication == null || !authentication.isAuthenticated()) {
                 return Optional.empty();
             }
             return Optional.of(authentication.getName());

@@ -13,7 +13,7 @@ import java.util.List;
 
 @Log4j2
 @RestController
-@RequestMapping( "/roles")
+@RequestMapping("/roles")
 @RequiredArgsConstructor
 public class RoleController {
     private final RoleService roleService;
